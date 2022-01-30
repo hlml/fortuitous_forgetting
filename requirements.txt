@@ -1,0 +1,10 @@
+h5py==3.6.0
+numpy==1.19.2
+nvidia_smi==0.1.3
+pandas==1.3.5
+Pillow==9.0.0
+PyYAML==6.0
+scipy==1.7.3
+torch==1.7.0
+torchvision==0.11.2
+tqdm==4.62.3

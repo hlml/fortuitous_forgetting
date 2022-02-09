@@ -63,11 +63,15 @@ if not args_raw.no_wandb:
             group_name = args_raw.group_vars[0] + str(getattr(args_raw, args_raw.group_vars[0]))
             for var in args_raw.group_vars[1:]:
                 group_name = group_name + '_' + var + str(getattr(args_raw, var))
-        wandb.init(project="ease_of_teaching_forget",
-               group=args_raw.fname,
-               name=group_name)
+        wandb.init(project="fortuitous_forgetting",
+               group="ease_of_teaching")
         for var in args_raw.group_vars:
             wandb.config.update({var:getattr(args_raw, var)})
+    else:
+            wandb.init(project="fortuitous_forgetting",
+                       group="ease_of_teaching")
+            for var in args_raw.group_vars:
+                wandb.config.update({var: getattr(args_raw, var)})
             
 args = vars(args_raw) # convert python object to dict
 # args = parser.parse()  # parsed argument from CLI

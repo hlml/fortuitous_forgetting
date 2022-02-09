@@ -21,7 +21,7 @@ from urllib.error import URLError
 from torchvision.datasets.mnist import *
 ACT = F.relu
 
-data_path = '/home/datasets'
+data_path = './datasets'
 use_cuda = torch.cuda.is_available()
 
 

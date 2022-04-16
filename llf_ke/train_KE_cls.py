@@ -235,11 +235,15 @@ if __name__ == '__main__':
                 group_name = cfg.group_vars[0] + str(getattr(cfg, cfg.group_vars[0]))
                 for var in cfg.group_vars[1:]:
                     group_name = group_name + '_' + var + str(getattr(cfg, var))
-            wandb.init(project="llf_ke",
-                   group=cfg.group_name,
-                   name=group_name)
+            wandb.init(project="fortuitous_forgetting",
+                   group="llf_ke")
             for var in cfg.group_vars:
                 wandb.config.update({var:getattr(cfg, var)})
+        else:
+            wandb.init(project="fortuitous_forgetting",
+                       group="llf_ke")
+            for var in cfg.group_vars:
+                wandb.config.update({var: getattr(cfg, var)})
                 
     if cfg.seed is not None and cfg.fix_seed: #FIXING SEED LEADS TO SAME REINITIALIZATION VALUES FOR EACH GENERATION
         random.seed(cfg.seed)

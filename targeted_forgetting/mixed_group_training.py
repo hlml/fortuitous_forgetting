@@ -21,7 +21,7 @@ from urllib.error import URLError
 from torchvision.datasets.mnist import *
 ACT = F.relu
 
-data_path = '/home/datasets'
+data_path = './datasets'
 use_cuda = torch.cuda.is_available()
 
 
@@ -623,9 +623,14 @@ def main():
                 group_name = args.group_vars[0] + str(getattr(args, args.group_vars[0]))
                 for var in args.group_vars[1:]:
                     group_name = group_name + '_' + var + str(getattr(args, var))
-            wandb.init(project="mixed_group_training",
-                       group=args.fname,
+            wandb.init(project="fortuitous_forgetting",
+                       group="mixed_group_training",
                        name=group_name)
+            for var in args.group_vars:
+                wandb.config.update({var: getattr(args, var)})
+        else:
+            wandb.init(project="fortuitous_forgetting",
+                       group="mixed_group_training")
             for var in args.group_vars:
                 wandb.config.update({var: getattr(args, var)})
 

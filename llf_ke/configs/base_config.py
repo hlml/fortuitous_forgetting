@@ -16,7 +16,7 @@ class Config:
 
         # General Config
         parser.add_argument(
-            "--data", help="path to dataset base directory", default="/home/datasets"
+            "--data", help="path to dataset base directory", default="./datasets"
         )
 
         parser.add_argument("--optimizer", help="Which optimizer to use", default="sgd")
